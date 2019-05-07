@@ -31,6 +31,11 @@
 		<!-- 背景图 -->
 		<div class="main_bg">
 			<div id="cesiumContainer"></div>
+			<!-- 退出楼层 --3D -->
+			<div class="topRight_outFloor">
+				<button>退出楼内</button>
+			</div>
+			
 		    <!-- 页面顶部 -->
 			<div class="main_head"></div>
 			<!-- 页面左侧消防管理菜单 -->
@@ -75,7 +80,7 @@
 				$('.left_fireMenu').load("page/left_fireMenu.html");
 				$('.rightBottom_toolBar').load("page/rightBottom_toolBar.html");
 				$('.bottom_buildingList').load("page/bottom_building.html");
-				$('.buildingInfo').load("page/bottom_buildingInfo.html");
+				$('.buildingInfo').load("page/left_buildingInfo.html");
 				$('.left_layerManage').load("page/left_layerManage.html");
 				$('.bottom_hiddenDanger').load("page/bottom_hiddenDanger.html");
 				$('.left_hiddenDanger').load("page/left_hiddenDanger.html");
@@ -142,9 +147,9 @@
 					$('body').on('click', '.showToolBarBtn', function() {
 						//判断展开收起状态
 						if ($('.toolBar_list').css('display') == "none") {
-							$('.showToolBarBtn').children('i:last-child').html('&#xe660;');
-						} else {
 							$('.showToolBarBtn').children('i:last-child').html('&#xe62a;');
+						} else {
+							$('.showToolBarBtn').children('i:last-child').html('&#xe660;');
 						}
 						$('.toolBar_list').slideToggle('slow');
 					})
@@ -156,7 +161,7 @@
 						//关闭物联详细信息
 						$('.iotMod_realTimeInfo').css('display','none');
 						
-						//一秒后执行
+						//一秒后执行	
 						setTimeout(function() {
 							moveRight('.left_fireMenu', 1000);
 						}, 1000)
@@ -186,6 +191,18 @@
 						var thisClass = $(this).parents('section').prop('className');
 						moveUp('.'+thisClass,'-1px',800);
 						$(this).replaceWith('<i class="iconfont bottomDown">&#xe619;</i>');
+					})
+					//点击显示退出楼层按钮
+					.on('click','.infoBar',function(){
+						$('.topRight_outFloor').css('display','block');
+					})
+					//点击隐藏退出楼内按钮
+					.on('click','.logo',function(){
+						$('.topRight_outFloor').css('display','none');
+					})
+					//退出楼内按钮事件
+					.on('click','.topRight_outFloor',function(){
+						layer.msg('退出楼内');
 					})
 			})
 		</script>

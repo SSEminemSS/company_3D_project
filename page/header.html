@@ -181,13 +181,7 @@
 				else {
 					$('.top_menu_btn_function_show').css('display', 'none')
 					$('.top_menu_btn_function_show').removeClass('show').addClass('hidden');
-					$('.top_menu_btn_function').children('svg:last-child').replaceWith(
-						'<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"' +
-						'viewBox="0 0 1024 1024" style="enable-background:new 0 0 1024 1024;" xml:space="preserve">' +
-						'<path d="M556.1,284.6l382.7,369.6c24.3,23.5,24.3,61.6,0,85.1c-24.3,23.5-63.8,23.5-88.1,0L512,412.3L173.4,739.4' +
-						'c-24.3,23.5-63.8,23.5-88.1,0c-24.3-23.5-24.3-61.6,0-85.1l382.7-369.6C480.1,272.9,496,267,512,267' +
-						'C528,267,543.9,272.9,556.1,284.6z" fill="white"/></svg>'
-					);
+					$('.top_menu_btn_function').children('i:last-child').html('&#xe62a;');
 				}
 			})
 			//点击城市按钮弹出区域街道信息
@@ -245,7 +239,7 @@
 					$('.top_menu_btn_location_show').removeClass('show').addClass('hidden');
 
 					//切换图标
-					$('.top_menu_btn_location').children('i:last-child').html('&#xe660;');
+					$('.top_menu_btn_location').children('i:last-child').html('&#xe62a;');
 				}
 
 			})
@@ -254,7 +248,7 @@
 				$('.top_menu_btn_location_show').fadeOut();
 				$('.top_menu_btn_location_show').removeClass('show').addClass('hidden');
 				//切换图标
-				$('.top_menu_btn_location').children('i:last-child').html('&#xe660;');
+				$('.top_menu_btn_location').children('i:last-child').html('&#xe62a;');
 				form.render();
 			})
 			//点击显示功能列表
@@ -264,12 +258,12 @@
 					$('.top_menu_btn_location_show').css('display', 'none')
 					$('.top_menu_btn_location_show').removeClass('show').addClass('hidden');
 					//切换图标
-					$('.top_menu_btn_location').children('i:last-child').html('&#xe660;');
+					$('.top_menu_btn_location').children('i:last-child').html('&#xe62a;');
 
 					$('.top_menu_btn_function_show').fadeIn();
 					$('.top_menu_btn_function_show').removeClass('hidden').addClass('show');
 					//切换图标
-					$('.top_menu_btn_function').children('i:last-child').html('&#xe62a;');
+					$('.top_menu_btn_function').children('i:last-child').html('&#xe660;');
 					//阻止冒泡
 					e = e || event;
 					e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
@@ -278,7 +272,7 @@
 					$('.top_menu_btn_function_show').removeClass('show').addClass('hidden');
 
 					//切换图标
-					$('.top_menu_btn_function').children('i:last-child').html('&#xe660;');
+					$('.top_menu_btn_function').children('i:last-child').html('&#xe62a;');
 				}
 			})
 			//点击用户头像时,现在无需要
@@ -295,7 +289,7 @@
 				var optionI = $(this).find('i').text();
 				$('.top_menu_btn_function').children('i:first-child').html(optionI);
 				$('.top_menu_btn_function').children('span').text(optionName);
-				$('.top_menu_btn_function').children('i:last-child').html('&#xe660;');
+				$('.top_menu_btn_function').children('i:last-child').html('&#xe62a;');
 				$('.top_menu_btn_function_show').fadeOut();
 				$('.top_menu_btn_function_show').removeClass('show').addClass('hidden');
 

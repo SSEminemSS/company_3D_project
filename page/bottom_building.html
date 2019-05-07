@@ -37,37 +37,26 @@
 			var data = $(this).data('item');
 			var html = '';
 			html += '<tr>\n' +
-				'            <td>建筑编码：</td>\n' +
+				'            <td>编码：</td>\n' +
 				'            <td>' + data.code + '</td>\n' +
 				'        </tr>\n' +
 				'        <tr>\n' +
-				'            <td>建筑地址：</td>\n' +
-				'            <td class="layui-elip" title="' + data.address + '">' + data.address + '</td>\n' +
+				'            <td>地址：</td>\n' +
+				'            <td>' + data.address + '</td>\n' +
 				'        </tr>\n' +
 				'        <tr>\n' +
-				'            <td>楼层：</td>\n' +
-				'            <td>' + data.floor + '</td>\n' +
-				'        </tr>\n' +
-				'        <tr>\n' +
-				'            <td>类型：</td>\n' +
-				'            <td>' + data.type + '</td>\n' +
-				'        </tr>\n' +
-				'        <tr>\n' +
-				'            <td>模式：</td>\n' +
-				'            <td>' + data.mode + '</td>\n' +
-				'        </tr>\n' +
-				'        <tr>\n' +
-				'            <td>建筑方向：</td>\n' +
-				'            <td>' + data.direction + '</td>\n' +
-				'        </tr>\n' +
-				'        <tr>\n' +
-				'            <td>区域面积大小：</td>\n' +
-				'            <td>' + data.area + '</td>\n' +
+				'            <td>维护：</td>\n' +
+				'            <td>' + data.Maintenance + '</td>\n' +
 				'        </tr>\n' +
 				$('.buildingInfo_detail_name').html(data.name);
 			$('.buildingInfo_detail_table tbody').html(html);
 			$('.buildingInfo_detail_img').find('img').attr('src', data.url);
+			//向下移动
+			moveDown('.bottom_buildingList','-177px',800);
+			$('.bottom_buildingList').find('.bottom_toolbar_move').html('<i class="iconfont bottomUp">&#xe636;</i>');
+			//打开建筑详细信息
 			$('.buildingInfo').css('display', 'block');
+			getBuilidInfoCharts()
 		})
 		//点击下方建筑列表中的3Dicon
 		.on('click','.buildingList_list_3D',function(){
@@ -121,7 +110,8 @@
 				type: '其他建筑',
 				mode: 'BO1',
 				direction: '南',
-				area: '50平方米'
+				area: '50平方米',
+				Maintenance:'深圳消安科技'
 			}, {
 				id: '0009dd8c9eca416596e4dfed465597fa',
 				name: "华程公交862宿舍",
@@ -132,7 +122,8 @@
 				type: '居住建筑',
 				mode: 'BO2',
 				direction: '东',
-				area: '500平方米'
+				area: '500平方米',
+				Maintenance:'深圳消安科技'
 			}, {
 				id: '000a9fb055d14c99a0ba132ac185ccae',
 				name: "中新七巷7号私宅",
@@ -143,7 +134,8 @@
 				type: '居住建筑',
 				mode: 'BO2',
 				direction: '南',
-				area: '120平方米'
+				area: '120平方米',
+				Maintenance:'深圳消安科技'
 			}, {
 				id: '000bd013057648ef8156f55f49642fc9',
 				name: "赖屋山东区14号",
@@ -154,7 +146,8 @@
 				type: '商业建筑',
 				mode: 'BO3',
 				direction: '东',
-				area: '800平方米'
+				area: '800平方米',
+				Maintenance:'深圳消安科技'
 			}, {
 				id: '000d3a412bc94438a5cebcc592f1f217',
 				name: "粤海门村31栋私宅",
@@ -165,7 +158,8 @@
 				type: '居住建筑',
 				mode: 'BO2',
 				direction: '南',
-				area: '95平方米'
+				area: '95平方米',
+				Maintenance:'深圳消安科技'
 			}]
 			layerIndex = layer.load(0, {
 				shade: [0.5, '#393D49']
