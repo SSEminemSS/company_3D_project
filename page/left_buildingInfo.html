@@ -1,0 +1,275 @@
+<div class="buildingInfo_title">
+	<i class="iconfont">&#xe65c;</i>
+	<h2>生态园11栋</h2><i class="iconfont bulidInfo_close">&#xe65f;</i>
+</div>
+<div class="buildingInfo_count">
+	<div class="buildingInfo_count_option">
+		<strong>52</strong><span>入驻单位</span>
+	</div>
+	<div class="buildingInfo_count_option">
+		<strong>8</strong><span>重点部位</span>
+	</div>
+	<div class="buildingInfo_count_option">
+		<strong>38</strong><span>视频监控</span>
+	</div>
+</div>
+<div class="buildingInfo_detail">
+	<table class="buildingInfo_detail_table">
+		<tbody>
+		</tbody>
+	</table>
+	<div class="buildingInfo_detail_img">
+		<img />
+	</div>
+</div>
+<div class="buildingInfo_btnBox">
+	<button class="layui-btn layui-btn-normal buildingInfo_btnBox_public">公共信息</button>
+	<button class="layui-btn layui-btn-normal buildingInfo_btnBox_fire">消防信息</button>
+</div>
+<div class="buildingInfo_baseInfo">
+	<table>
+		<tbody>
+			<tr>
+				<td>楼高(米)</td>
+				<td>层数(层)</td>
+				<td>整改(项)</td>
+			</tr>
+			<tr>
+				<td>48</td>
+				<td>11</td>
+				<td>0</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="buildingInfo_chartBox">
+	<div class="buildingInfo_chartBox_title"><i class="iconfont">&#xe635;</i><i class="iconfont">&#xe635;</i><span>巡查记录</span></div>
+	<div id="buildingInfo_chart"></div>
+</div>
+<div class="buildingInfo_manager">
+	<div class="buildingInfo_manager_title">
+		<i class="iconfont">&#xe635;</i><i class="iconfont">&#xe635;</i><span>相关负责人</span>
+	</div>
+	<div class="buildingInfo_manager_person">
+		<div class="buildingInfo_manager_person_option"><span><i class="iconfont">&#xe686;</i>主体责任人:</span><label>小明</label><strong>18859648441</strong></div>
+		<div class="buildingInfo_manager_person_option"><span>管理责任人:</span><label>小红</label><strong>18898745624</strong></div>
+	</div>
+</div>
+
+<!-- 楼层信息 -->
+<div class="buildingInfoFloor">
+	<div class="buildingInfoFloor_title">
+		<i class="iconfont"></i><span>生态园11栋11层</span><i class="iconfont">&#xe65f;</i>
+	</div>
+	<ul class="buildingInfoFloor_tabList">
+		<li>基础信息</li><li>消防物联</li>
+	</ul>
+	<div class="buildingInfoFloor_tabContent">
+		<div class="buildingInfoFloor_tab_baseInfo">
+			<div class="buildingInfoFloor_tab_baseInfo_count">
+				<div class="buildingInfoFloor_tab_baseInfo_count_option"><span>2</span><span>6</span><span>9</span></div>
+				<div class="buildingInfoFloor_tab_baseInfo_count_option"><span>重点部位</span><span>视频监控</span><span>安全出口</span></div>
+			</div>
+			<div class="buildingInfoFloor_tab_baseInfo_msg">
+				<div class="buildingInfoFloor_tab_baseInfo_msg_option"><label>建筑面积：</label><span>8675 m²</span></div>
+				<div class="buildingInfoFloor_tab_baseInfo_msg_option"><label>实用面积：</label><span>8401 m²</span></div>
+				<div class="buildingInfoFloor_tab_baseInfo_msg_option"><label>层高：</label><span>4.2 M</span></div>
+				<div class="buildingInfoFloor_tab_baseInfo_msg_option"><label>房间数：</label><span>11 间</span></div>
+			</div>
+			<div class="buildingInfoFloor_tab_baseInfo_shebei">
+				<div class="buildingInfoFloor_tab_baseInfo_shebei_title">
+					<i class="iconfont">&#xe635;</i><i class="iconfont">&#xe635;</i><span>消防基础设施</span>
+				</div>
+				<div class="buildingInfoFloor_tab_baseInfo_shebei_option"><i class="iconfont"></i><label>灭火器：</label><span>120</span></div>
+				<div class="buildingInfoFloor_tab_baseInfo_shebei_option"><i class="iconfont"></i><label>消防栓：</label><span>34</span></div>
+				<div class="buildingInfoFloor_tab_baseInfo_shebei_option"><i class="iconfont"></i><label>温感：</label><span>4</span></div>
+				<div class="buildingInfoFloor_tab_baseInfo_shebei_option"><i class="iconfont"></i><label>报警器：</label><span>106</span></div>
+				<div class="buildingInfoFloor_tab_baseInfo_shebei_option"><i class="iconfont"></i><label>烟感：</label><span>8</span></div>
+			</div>
+			<div class="buildingInfoFloor_tab_baseInfo_unit">
+				<div class="buildingInfoFloor_tab_baseInfo_unit_title">
+					<i class="iconfont">&#xe635;</i><i class="iconfont">&#xe635;</i><span>入驻单位</span>
+				</div>
+				<div class="buildingInfoFloor_tab_baseInfo_unit_option">
+					<span>深圳市慧动创想科技有限公司</span>
+				</div>
+				<div class="buildingInfoFloor_tab_baseInfo_unit_option">
+					<span>深圳市瑞立多媒体管理有限公司</span>
+				</div>
+				<div class="buildingInfoFloor_tab_baseInfo_unit_option">
+					<span>深化建设(深圳)股份有限公司</span>
+				</div>
+				<div class="buildingInfoFloor_tab_baseInfo_unit_option">
+					<span>红杉(深圳)投资控股有限公司</span>
+				</div>
+			</div>
+		</div>
+		<div class="buildingInfoFloor_tab_iotInfo">
+			
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	layui.use(['layer', 'form'], function() {
+		var form = layui.form,
+			layer = layui.layer,
+			layerIndex = '';
+
+		//关闭建筑详细信息窗口
+		$('.bulidInfo_close').click(function() {
+			$('.buildingInfo').css('display', 'none');
+			//向上移动
+			moveUp('.bottom_buildingList','-1px',800);
+			$('.bottom_buildingList').find('.bottom_toolbar_move').html('<i class="iconfont bottomDown">&#xe619;</i>');
+		})
+		//点击下方建筑列表显示建筑详细信息 
+		$('body') //点击进入楼层按钮
+			.on('click', '.buildingInfo_btnBox_public', function() {
+				layer.msg('公共信息');
+			})
+			.on('click', '.buildingInfo_btnBox_fire', function() {
+				layer.msg('消防信息');
+			})
+
+		//加载charts
+		window.getBuilidInfoCharts = function() {
+			//显示当日能耗负荷曲线charts -- 曲线图
+			var SChartLine = echarts.init(document.getElementById('buildingInfo_chart'));
+			var SChartLineOption = {
+				color: ['#36e5ff', '#0081ff'],
+				legend: {
+					data: ['自查', '巡查'],
+					right: 40,
+					textStyle: {
+						color: 'white',
+						fontSize: 12,
+					},
+					inactiveColor: 'gray',
+				},
+				grid: {
+					left: '8%',
+					right: '4%',
+					bottom: 30,
+				},
+				xAxis: {
+					data: ['04/01', '04/02', '04/03', '04/04', '04/05', '04/06', '04/07'],
+					axisLabel: {
+						textStyle: {
+							color: 'white',
+							fontSize: 12,
+						},
+						interval: 0,
+					},
+					axisTick: {
+						show: false,
+					},
+					axisLine:{
+						show:true,
+						lineStyle:{
+							color:'rgba(255,255,255,0.2)',
+						}
+					},
+				},
+				yAxis: {
+					type: 'value',
+					splitNumber: 7,
+					min: 0,
+					max: 12,
+					axisLabel: {
+						textStyle: {
+							color: 'white'
+						}
+					},
+					splitLine: {
+						show:false,
+					},
+					axisTick: {
+						show: false,
+					},
+					axisLine:{
+						show:true,
+						lineStyle:{
+							color:'rgba(255,255,255,0.2)',
+						}
+					},
+				},
+
+				series: [{
+						name: '自查',
+						type: 'line',
+						symbol: "none",
+						smooth: true,
+						lineStyle: {
+							color: '#36e5ff',
+							width: 3,
+						},
+						areaStyle: {
+							normal: {
+								color: new echarts.graphic.LinearGradient(
+									0, 0, 0, 1,
+									[{
+											offset: 0,
+											color: '#36e5ff'
+										},
+										{
+											offset: 0.3,
+											color: 'rgba(54, 229, 255, 0.5)'
+										},
+										{
+											offset: 0.5,
+											color: 'rgba(54, 229, 255, 0.2)'
+										},
+										{
+											offset: 1,
+											color: 'rgba(54, 229, 255, 0)'
+										}
+									]
+								)
+							}
+						},
+						data: [10,8,5,3,4,5,2]
+					},
+					{
+						name: '巡查',
+						type: 'line',
+						symbol: "none",
+						smooth: true,
+						lineStyle: {
+							color: '#0081ff',
+							width: 3,
+						},
+						areaStyle: {
+							normal: {
+								color: new echarts.graphic.LinearGradient(
+									0, 0, 0, 1,
+									[{
+											offset: 0,
+											color: '#0081ff'
+										},
+										{
+											offset: 0.3,
+											color: 'rgba(0, 129, 255, 0.5)'
+										},
+										{
+											offset: 0.5,
+											color: 'rgba(0, 129, 255, 0.2)'
+										},
+										{
+											offset: 1,
+											color: 'rgba(0, 129, 255, 0.1)'
+										}
+									]
+								)
+							}
+						},
+						data: [12,8,6,4,8,5,9]
+					},
+				]
+			}
+			//清楚画布内容,以便重加载
+			SChartLine.clear();
+			SChartLine.setOption(SChartLineOption);
+		}
+
+	})
+</script>
