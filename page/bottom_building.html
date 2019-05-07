@@ -1,0 +1,204 @@
+<!-- 标题和查询 -->
+<div class="layui-form  buildingList_title">
+	<div class="buildingList_title_name">
+		<i class="iconfont">&#xe659;</i><span>建筑管理</span>
+	</div>
+	<div class="buildingList_title_search">
+		<i class="iconfont">&#xe78d;</i>
+		<input name="buildNamesearch" placeholder="请输入建筑名称,编码" />
+
+	</div>
+</div>
+<!-- 窗口功能 -->
+<div class="bottom_toolbar">
+	<!-- 窗口向上显示，向下隐藏部分 -->
+	<div class="bottom_toolbar_move"><i class="iconfont bottomDown">&#xe619;</i></div>
+	<!-- 窗口关闭 -->
+	<div class="bottom_toolbar_close" title="关闭"><i class="iconfont bottom_close">&#xe65f;</i></div>
+</div>
+<!-- 建筑列表 -->
+<ul class="buildingList_listbox">
+</ul>
+<script type="text/javascript">
+	layui.use(['layer', 'form'], function() {
+		var form = layui.form,
+			layer = layui.layer,
+			layerIndex = '';
+		//点击下方建筑列表显示建筑详细信息 --on不能在此下面正确执行
+		$('body').find('.buildingList_listbox').on('click', 'li', function() {
+			$(this).addClass('buildingList_list_hover').siblings('li').removeClass('buildingList_list_hover');
+			// layer.msg($(this).data('id'));
+			//根据ID获取信息
+			//ajax
+			//获取建筑详细信息
+
+			//根据ID获取详细信息
+			//ajax
+			var data = $(this).data('item');
+			var html = '';
+			html += '<tr>\n' +
+				'            <td>建筑编码：</td>\n' +
+				'            <td>' + data.code + '</td>\n' +
+				'        </tr>\n' +
+				'        <tr>\n' +
+				'            <td>建筑地址：</td>\n' +
+				'            <td class="layui-elip" title="' + data.address + '">' + data.address + '</td>\n' +
+				'        </tr>\n' +
+				'        <tr>\n' +
+				'            <td>楼层：</td>\n' +
+				'            <td>' + data.floor + '</td>\n' +
+				'        </tr>\n' +
+				'        <tr>\n' +
+				'            <td>类型：</td>\n' +
+				'            <td>' + data.type + '</td>\n' +
+				'        </tr>\n' +
+				'        <tr>\n' +
+				'            <td>模式：</td>\n' +
+				'            <td>' + data.mode + '</td>\n' +
+				'        </tr>\n' +
+				'        <tr>\n' +
+				'            <td>建筑方向：</td>\n' +
+				'            <td>' + data.direction + '</td>\n' +
+				'        </tr>\n' +
+				'        <tr>\n' +
+				'            <td>区域面积大小：</td>\n' +
+				'            <td>' + data.area + '</td>\n' +
+				'        </tr>\n' +
+				$('.buildingInfo_detail_name').html(data.name);
+			$('.buildingInfo_detail_table tbody').html(html);
+			$('.buildingInfo_detail_img').find('img').attr('src', data.url);
+			$('.buildingInfo').css('display', 'block');
+		})
+		//点击下方建筑列表中的3Dicon
+		.on('click','.buildingList_list_3D',function(){
+			var thisID = $(this).parents('.buildingList_list').data('id');
+			layer.msg('建筑ID：' + thisID);
+		})
+		//加载建筑下拉选择项
+		// 		function getBuildSelectList() {
+		// 			var data = [{
+		// 				id: 123,
+		// 				name: '南山分局深圳湾服务中心'
+		// 			}, {
+		// 				id: 124,
+		// 				name: '南山分局深圳湾服务中心'
+		// 			}, {
+		// 				id: 125,
+		// 				name: '南山分局深圳湾服务中心'
+		// 			}, {
+		// 				id: 126,
+		// 				name: '南山分局深圳湾服务中心'
+		// 			}, {
+		// 				id: 127,
+		// 				name: '南山分局深圳湾服务中心'
+		// 			}]
+		// 
+		// 			//获取接口数据
+		// 			//ajax
+		// 			//填充数据
+		// 			var html = '';
+		// 			if (data && data.length > 0) {
+		// 				html += '<option value="" selected>请选择建筑名称</option>'
+		// 				for (var i = 0; i < data.length; i++) {
+		// 					html += '<option value="' + data[i].id + '">' + data[i].name + '</option>\n';
+		// 				}
+		// 			} else {
+		// 				html = '<option value="" selected>暂无数据</option>'
+		// 			}
+		// 			$('select[name="buildNameSearch"]').html(html);
+		// 			form.render()
+		// 		}
+		//获取建筑信息列表
+		window.getBuildList = function() {
+			//假数据
+			var data = [{
+				id: '0002ab7275e94f848ea9beb9e6ac452e',
+				name: '新民厂门卫室',
+				url: "img/fakerImg/buildImg_1.png",
+				address: '龙城区域01概略',
+				code: "4403070070080900100",
+				floor: '5',
+				type: '其他建筑',
+				mode: 'BO1',
+				direction: '南',
+				area: '50平方米'
+			}, {
+				id: '0009dd8c9eca416596e4dfed465597fa',
+				name: "华程公交862宿舍",
+				url: "img/fakerImg/buildImg_2.png",
+				address: '龙城区域01厂房',
+				code: "4403070070040500168",
+				floor: '10',
+				type: '居住建筑',
+				mode: 'BO2',
+				direction: '东',
+				area: '500平方米'
+			}, {
+				id: '000a9fb055d14c99a0ba132ac185ccae',
+				name: "中新七巷7号私宅",
+				url: "img/fakerImg/buildImg_3.png",
+				address: '坂田街道区域01概略',
+				code: "4403070030021500280",
+				floor: '8',
+				type: '居住建筑',
+				mode: 'BO2',
+				direction: '南',
+				area: '120平方米'
+			}, {
+				id: '000bd013057648ef8156f55f49642fc9',
+				name: "赖屋山东区14号",
+				url: "img/fakerImg/buildImg_4.png",
+				address: '赖屋山东区14号',
+				code: "4400000000067368431",
+				floor: '25',
+				type: '商业建筑',
+				mode: 'BO3',
+				direction: '东',
+				area: '800平方米'
+			}, {
+				id: '000d3a412bc94438a5cebcc592f1f217',
+				name: "粤海门村31栋私宅",
+				url: "img/fakerImg/buildImg_5.png",
+				address: '粤海门村31栋私宅',
+				code: "4403050070160200035",
+				floor: '9',
+				type: '居住建筑',
+				mode: 'BO2',
+				direction: '南',
+				area: '95平方米'
+			}]
+			layerIndex = layer.load(0, {
+				shade: [0.5, '#393D49']
+			});
+			//接口获取数据
+			//ajax
+			//填充信息
+			var html = '';
+			if (data && data.length > 0) {
+				for (var i = 0; i < data.length; i++) {
+					html += '<li class="buildingList_list" data-item=' + JSON.stringify(data[i]).toString().replace(/\s/g, "") +
+						' >\n' +
+						'           <div class="buildingList_list_title">' +
+						'               <span>' + (i + 1) + '.' + data[i].name + '</span>\n' +
+						'               <i title="三维" class="iconfont">&#xe654;</i>\n' +
+						'           </div>\n' +
+						'           <div class="buildingList_list_content">\n' +
+						'               <img src="' + data[i].url + '" />\n' +
+						'               <div class="buildingList_list_contentInfo">\n' +
+						//layui-elip 用于省略
+						'                   <span class="layui-elip" title="' + data[i].address + '">地址：' + data[i].address +
+						'</span>\n' +
+						'                   <span class="layui-elip" title="' + data[i].code + '">编码：' + data[i].code + '</span>\n' +
+						'               </div>\n' +
+						'           </div>\n' +
+						'        </li>'
+				}
+
+			} else {
+				html += '<div class="noData"><span>暂无数据</span></div>'
+			}
+			$('.buildingList_listbox').html(html);
+			layer.close(layerIndex);
+		}
+	})
+</script>

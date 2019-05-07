@@ -1,0 +1,71 @@
+<div class="layerManage_title">
+					<span>图层管理</span>
+					<i class="iconfont close_icon">&#xe65f;</i>
+				</div>
+				<!-- 图层管理列表 -->
+				<ul class="layui-form layerManage_list">
+					<li>
+						<span>建筑区名称</span>
+						<div class="layerManage_list_checkbox_box">
+							<input type="checkbox" checked lay-skin="switch" lay-filter="checkbox_bulidName" />
+						</div>						
+					</li>
+					<li>
+						<span>园区办事点</span>
+						<div class="layerManage_list_checkbox_box">
+							<input type="checkbox" name="" checked lay-skin="switch" lay-filter="checkbox_parkBusiness" />
+						</div>
+					</li>
+					<li>
+						<span>银行图层</span>
+						<div class="layerManage_list_checkbox_box">
+							<input type="checkbox" name="" lay-skin="switch" lay-filter="checkbox_blank" />
+						</div>
+					</li>
+					<li>
+						<span>医院诊所</span>
+						<div class="layerManage_list_checkbox_box">
+							<input type="checkbox" name="" lay-skin="switch" lay-filter="checkbox_hospital" />
+						</div>
+					</li>
+					<li>
+						<span>消防元素图层</span>
+						<div class="layerManage_list_checkbox_box">
+							<input type="checkbox" name="" lay-skin="switch" lay-filter="checkbox_fireAttr" />
+						</div>
+					</li>
+				</ul>
+				<script type="text/javascript">
+					layui.use(['layer', 'form'], function() {
+						var form = layui.form,
+							layer = layui.layer,
+							layerIndex = '';
+						form.render();
+						//点击图层单选框事件
+						form.on("switch(checkbox_bulidName)",function(data){
+							//选中情况
+							var isCheck = data.elem.checked === true ? '选中':'未选中';
+							layer.msg('建筑区名称 ' + isCheck);
+						})
+						form.on("switch(checkbox_parkBusiness)",function(data){
+							//选中情况
+							var isCheck = data.elem.checked === true ? '选中':'未选中';
+							layer.msg('园区办事点 ' + isCheck);
+						})
+						form.on("switch(checkbox_blank)",function(data){
+							//选中情况
+							var isCheck = data.elem.checked === true ? '选中':'未选中';
+							layer.msg('银行图层 ' + isCheck);
+						})
+						form.on("switch(checkbox_hospital)",function(data){
+							//选中情况
+							var isCheck = data.elem.checked === true ? '选中':'未选中';
+							layer.msg('医院诊所 ' + isCheck);
+						})
+						form.on("switch(checkbox_fireAttr)",function(data){
+							//选中情况
+							var isCheck = data.elem.checked === true ? '选中':'未选中';
+							layer.msg('消防元素图层 ' + isCheck);
+						})
+					})
+				</script>

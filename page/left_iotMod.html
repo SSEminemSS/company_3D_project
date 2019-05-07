@@ -1,0 +1,431 @@
+<!-- 物联头部 -->
+				<div class="iotMod_head">
+					<i class="iconfont">&#xe635;</i><i class="iconfont">&#xe635;</i>
+					<span>物联信息录入统计</span>
+					<i class="iconfont close_icon">&#xe65f;</i>
+				</div>
+				<!-- 物联统计数据 -->
+				<div class="iotMod_data">
+					<div class="iotMod_data_info">
+						<div class="iotMod_data_info_option">
+							<i class="iconfont">&#xe633;</i><span>网关接入</span>
+						</div>
+						<div class="iotMod_data_info_option">
+							<i class="iconfont">&#xe637;</i><span>接入传感</span>
+						</div>
+						<div class="iotMod_data_info_option">
+							<i class="iconfont">&#xe666;</i><span>接入视频</span>
+						</div>
+					</div>
+					<!-- 数据图形 -->
+					<div class="iotMod_data_chart">
+						<div class="iotMod_data_chart_option" id="iotChart_router">
+
+						</div>
+						<div class="iotMod_data_chart_option" id="iotChart_sensor">
+
+						</div>
+						<div class="iotMod_data_chart_option" id="iotChart_video">
+
+						</div>
+					</div>
+					<!-- 设备统计 -->
+					<div class="iotMod_data_count">
+						<div class="iotMod_data_count_option">
+							<div class="iotMod_data_count_option_line">
+								<span>在线</span>
+								<span>1</span>
+							</div>
+							<div class="iotMod_data_count_option_line">
+								<span>总数</span>
+								<span>1</span>
+							</div>
+						</div>
+						<div class="iotMod_data_count_option">
+							<div class="iotMod_data_count_option_line">
+								<span>在线</span>
+								<span>65</span>
+							</div>
+							<div class="iotMod_data_count_option_line">
+								<span>总数</span>
+								<span>65</span>
+							</div>
+						</div>
+						<div class="iotMod_data_count_option">
+							<div class="iotMod_data_count_option_line">
+								<span>在线</span>
+								<span>2</span>
+							</div>
+							<div class="iotMod_data_count_option_line">
+								<span>总数</span>
+								<span>2</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 物联实时信息 -->
+				<div class="iotMod_timeInfo">
+					<div class="iotMod_timeInfo_title">
+						<i class="iconfont">&#xe635;</i><i class="iconfont">&#xe635;</i>
+						<span>实时预警信息</span>
+					</div>
+					<div class="layui-tab iotMod_timeInfo_tab">
+						<ul class="layui-tab-title iotMod_timeInfo_tab_title">
+							<li class="iotMod_timeInfo_tab_this">实时</li>
+							<li>异常</li>
+						</ul>
+						<hr />
+						<div class="layui-tab-content iotMod_timeInfo_tab_content">
+							<div class="layui-tab-item layui-show">
+								<ul>
+									<li>
+										<span><i class="layui-icon">&#xe617;</i>关开关量传感器</span>
+										<span>1分钟前</span>
+										<span></span>
+									</li>
+									<li>
+										<span><i class="layui-icon">&#xe617;</i>三相交流开关量传感器</span>
+										<span>2分钟前</span>
+										<span></span>
+									</li>
+									<li>
+										<span><i class="layui-icon iotMod_timeInfo_i_red">&#xe617;</i>三相交流开关量传感器</span>
+										<span>3分钟前</span>
+										<span>异常</span>
+									</li>
+									<li>
+										<span><i class="layui-icon">&#xe617;</i>温湿度传感器</span>
+										<span>4分钟前</span>
+										<span></span>
+									</li>
+									<li>
+										<span><i class="layui-icon">&#xe617;</i>水压传感器</span>
+										<span>5分钟前</span>
+										<span></span>
+									</li>
+									<li>
+										<span><i class="layui-icon">&#xe617;</i>常关开关量传感器</span>
+										<span>6分钟前</span>
+										<span></span>
+									</li>
+								</ul>
+							</div>
+							<div class="layui-tab-item">
+								<ul>
+									<li>
+										<span><i class="layui-icon iotMod_timeInfo_i_red">&#xe617;</i>三相交流开关量传感器</span>
+										<span>3分钟前</span>
+										<span>异常</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 异常数据统计 -->
+				<div class="iotMod_errorCount">
+					<div class="iotMod_errorCount_title">
+						<i class="iconfont">&#xe635;</i><i class="iconfont">&#xe635;</i><span>异常数据统计</span>
+					</div>
+					<div id="errorChart"></div>
+				</div>
+			<script type="text/javascript">
+				layui.use(['layer', 'form'], function() {
+					var form = layui.form,
+						layer = layui.layer,
+						layerIndex = '';
+					form.render();
+					
+					//关闭物联实时信息窗口
+					$('body').on('click','.realItemInfo_icon',function(){
+						$('.iotMod_realTimeInfo').css('display','none');
+					})
+					
+					//切换tab
+					$('.iotMod_timeInfo_tab_title').find('li').on('click',function(){
+						$(this).addClass('iotMod_timeInfo_tab_this').siblings('li').removeClass('iotMod_timeInfo_tab_this');
+					})
+					//点击物联实时信息列表显示详细数据
+					$('.iotMod_timeInfo_tab_content').on('click','li',function(){
+						$('.iotMod_realTimeInfo').css({display:'block',top:$(this).offset().top + 'px'});
+						//根据点击li的id获取数据显示
+						//ajax
+						var data = {
+							type1:'水压传感器',
+							postition:'南山区高新南就到1001号深圳湾创业投资大厦负3楼水泵房',
+							type2:'类别一',
+							name:'水压',
+							value:'0.74',
+							usefor:'衡量消防系统水压',
+							high:'3',
+							low:'2',
+							reason:'消防水泵异常，系统水压过低',
+							result:'水管泄露风险水压不够，消防栓及喷淋系统无法正常工作',
+							dealWay:'更换水管',
+						}
+						var baseHtml = '<div class="iotMod_realTimeInfo_content_baseInfo_row"><label>类型：</label><span>'+data.type1+'</span></div>'+
+						'<div class="iotMod_realTimeInfo_content_baseInfo_row"><label>位置</label><span>'+data.postition+'</span></div>';
+						$('.iotMod_realTimeInfo_content_baseInfo').html(baseHtml);
+						var warnHtml = '<div class="iotMod_realTimeInfo_content_warnInfo_title"><span>'+data.type2+'</span></div>' +
+						'<div class="iotMod_realTimeInfo_content_warnInfo_row2"><label>名称：</label><span>'+data.name+'</span><label style="color:#01c5d6;">当前值：</label><span style="color:#01c5d6;">'+data.value+'Mpa</span></div>' +
+						'<div class="iotMod_realTimeInfo_content_warnInfo_row1"><label>作用：</label><span>'+data.usefor+'<span></div>' +
+						'<div class="iotMod_realTimeInfo_content_warnInfo_title"><span>阀值设定</span></div>' +
+						'<div class="iotMod_realTimeInfo_content_warnInfo_row2"><label>高水压：</label><span>'+data.high+'Mpa</span><label>低水压：</label><span>'+data.low+'Mpa</span></div>' +
+						'<div class="iotMod_realTimeInfo_content_warnInfo_title"><span>异常原因</span></div>' +
+						'<div class="iotMod_realTimeInfo_content_warnInfo_row1"><span>'+data.reason+'</span></div>' +
+						'<div class="iotMod_realTimeInfo_content_warnInfo_title"><span>异常结果</span></div>' +
+						'<div class="iotMod_realTimeInfo_content_warnInfo_row1"><span>'+data.result+'</span></div>' +
+						'<div class="iotMod_realTimeInfo_content_warnInfo_title"><span>处理方法</span></div>' +
+						'<div class="iotMod_realTimeInfo_content_warnInfo_row1"><span>'+data.dealWay+'</span></div>';
+						
+						$('.iotMod_realTimeInfo_content_warnInfo').html(warnHtml);
+						
+						
+					})
+					//加载物联信息
+					window.getIotInfo = function() {
+						//加载数据
+						//加载饼状图
+						layerIndex = layer.load(0, {shade: [0.5, '#393D49']});
+						// 网关
+						var routerChart = echarts.init(document.getElementById('iotChart_router'));
+						var routerOption = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "{a} <br/>{b}: {c} ({d}%)",
+								position:[50,-50]
+							},
+							series:[{
+								name:'网关接入',
+								type:'pie',
+								radius: ['70%', '85%'],
+								hoverOffset:5,
+								avoidLabelOverlap: false,
+								label:{
+									normal:{
+										show:true,
+										position:'center',
+										formatter:function(argument){
+											return '99%\n在线占比' //中间显示文字
+										},
+										textStyle:{
+											fontSize:"14",
+											color:'white',
+										}
+									},
+									
+								},
+								labelLine:{
+									normal:{
+										show:false
+									}
+								},
+								data:[//饼状图占比
+									{value:22,name:"离线"},
+									{value:180,name:"在线"}
+								]
+							}],
+							//配置颜色
+							color:['rgba(255,255,255,0.3)','#fb973f']
+						}
+						//清楚画布内容,以便重加载
+						routerChart.clear()
+						routerChart.setOption(routerOption);
+						
+						
+						// 传感器
+						var sensorChart = echarts.init(document.getElementById('iotChart_sensor'));
+						var sensorOption = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "{a} <br/>{b}: {c} ({d}%)",
+								position:[50,-50]
+							},
+							series:[{
+								name:'传感器接入',
+								type:'pie',
+								radius: ['70%', '85%'],
+								avoidLabelOverlap: false,
+								hoverOffset:5,
+								label:{
+									normal:{
+										show:true,
+										position:'center',
+										formatter:function(argument){
+											return '99%\n在线占比' //中间显示文字
+										},
+										textStyle:{
+											fontSize:"14",
+											color:'white',
+										}
+									},
+									
+								},
+								labelLine:{
+									normal:{
+										show:false
+									}
+								},
+								data:[//饼状图占比
+									{value:30,name:"离线"},
+									{value:150,name:"在线"}
+								]
+							}],
+							//配置颜色
+							color:['rgba(255,255,255,0.3)','#fb973f']
+						}
+						//清楚画布内容,以便重加载
+						sensorChart.clear()
+						sensorChart.setOption(sensorOption);
+						
+						// 视频
+						var videoChart = echarts.init(document.getElementById('iotChart_video'));
+						var videoOption = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "{a} <br/>{b}: {c} ({d}%)",
+								position:[50,-50]
+							},
+							series:[{
+								name:'视频接入',
+								type:'pie',
+								radius: ['70%', '85%'],
+								hoverOffset:5,
+								avoidLabelOverlap: false,
+								label:{
+									normal:{
+										show:true,
+										position:'center',
+										formatter:function(argument){
+											return '99%\n在线占比' //中间显示文字
+										},
+										textStyle:{
+											fontSize:"14",
+											color:'white',
+										}
+									},
+									
+								},
+								labelLine:{
+									normal:{
+										show:false
+									}
+								},
+								data:[//饼状图占比
+									{value:20,name:"离线"},
+									{value:120,name:"在线"}
+								]
+							}],
+							//配置颜色
+							color:['rgba(255,255,255,0.3)','#fb973f']
+						}
+						//清楚画布内容,以便重加载
+						videoChart.clear()
+						videoChart.setOption(videoOption);
+						
+						//错误信息chart errorChart
+						var errorChart = echarts.init(document.getElementById('errorChart'));
+						var errorOption = {
+							tooltip: {
+								trigger: 'axis',
+								backgroundColor:'rgba(14, 28, 45, 0.8)',
+								borderColor:'rgb(54, 229, 255)',
+								extraCssText:'box-shadow: 1.854px 5.706px 8px 0px rgba(0, 24, 66, 0.44);',
+								padding:'15',
+							},
+							legend:{
+								data:['传感器故障','火警点位','传感离线','动作点位','探点异常','故障点位'],
+								textStyle:{
+									color:"white",
+								},
+								inactiveColor:'#8c8c8c'
+							},
+							grid:{
+								left:'10px',
+								right:'10px',
+								bottom:'5px',
+								containLabel: true
+							},
+							xAxis:{
+								type:'category',
+								boundaryGap:false,
+								data:['12月','1月','2月','3月','4月'],
+								axisLabel:{
+									textStyle:{
+										color:'white'
+									}
+								},
+								axisLine:{
+									show:true,
+									lineStyle:{
+										color:'rgba(255,255,255,0.2)',
+									}
+								},
+								axisTick:{
+									show:false,
+								},
+							},
+							yAxis:{
+								type:'value',
+								axisLabel:{
+									textStyle:{
+										color:'white'
+									}
+								},
+								axisLine:{
+									show:true,
+									lineStyle:{
+										color:'rgba(255,255,255,0.2)',
+									}
+								},
+								splitLine:{
+									show:false,
+								},
+								axisTick:{
+									show:false,
+								},
+							},
+							series:[
+								{
+									name:'传感器故障',
+									type:'line',
+									data:[1,3,4,6,8]
+								},
+								{
+									name:'火警点位',
+									type:'line',
+									data:[5,3,10,6,3]
+								},
+								{
+									name:'传感离线',
+									type:'line',
+									data:[9,6,10,8,16]
+								},
+								{
+									name:'动作点位',
+									type:'line',
+									data:[4,2,5,7,3]
+								},
+								{
+									name:'探点异常',
+									type:'line',
+									data:[3,4,4,6,8]
+								},
+								{
+									name:'故障点位',
+									type:'line',
+									data:[1,0,8,5,3]
+								}
+							],
+							//配置颜色
+							color:['#007aff','#ffdb5c','#36e5ff','#fb9d7e','#fb7293','#8fb7f3']
+							
+						}
+						//清楚画布内容,以便重加载
+						errorChart.clear();
+						errorChart.setOption(errorOption);
+						layer.close(layerIndex);
+						
+					}
+					})
+			</script>

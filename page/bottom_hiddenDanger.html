@@ -1,0 +1,149 @@
+<!-- 标题 -->
+<div class="hiddenDanger_title">
+	<div class="hiddenDanger_title_name">
+		<i class="iconfont">&#xe63e;</i>
+		<span>隐患排查</span>
+	</div>
+</div>
+<!-- 窗口功能 -->
+<div class="bottom_toolbar">
+	<!-- 窗口向上显示，向下隐藏部分 -->
+	<div class="bottom_toolbar_move"><i class="iconfont bottomDown">&#xe619;</i></div>
+	<!-- 窗口关闭 -->
+	<div class="bottom_toolbar_close" title="关闭"><i class="iconfont bottom_close">&#xe65f;</i></div>
+</div>
+<!-- 隐患占比列表 -->
+<ul class="hiddenDanger_listbox">
+</ul>
+<script type="text/javascript">
+	layui.use(['layer', 'form'], function() {
+		var form = layui.form,
+			layer = layui.layer,
+			layerIndex = '';
+		//点击隐患排查列表事件,显示窗口
+		$('body').on('click','.hiddenDanger_list',function(){
+			layer.msg($(this).data('id'));
+			moveRight('.left_hiddenDanger',1000);
+			//获取点击哪个列表 传入id获取信息
+			getHiddenDangerInfo($(this).data('id'));
+		})
+		//加载隐患排查的数据饼状图
+		window.getHiddenDangerCharts = function() {
+			var data = [{
+				id: '0002ab7275e94f848ea9beb9e6ac452e',
+				name: '新民厂门卫室',
+				checked: 75,
+				uncheck: 25
+			}, {
+				id: '0009dd8c9eca416596e4dfed465597fa',
+				name: "华程公交862宿舍",
+				checked: 98,
+				uncheck: 2,
+			}, {
+				id: '000a9fb055d14c99a0ba132ac185ccae',
+				name: "中新七巷7号私宅",
+				checked: 96,
+				uncheck: 4,
+			}, {
+				id: '000bd013057648ef8156f55f49642fc9',
+				name: "赖屋山东区14号",
+				checked: 80,
+				uncheck: 20,
+			}, {
+				id: '000d3a412bc94438a5cebcc592f1f217',
+				name: "粤海门村31栋私宅",
+				checked: 89,
+				uncheck: 11,
+			}]
+			layerIndex = layer.load(0, {
+				shade: [0.5, '#393D49']
+			});
+			//获取数据
+			//ajax
+			//先获取个数并写入html
+			var html = '';
+			if (data && data.length > 0) {
+				for (var i = 0; i < data.length; i++) {
+					html += '<li data-id="' + (i + 1) + '" class="hiddenDanger_list">\n' +
+						'            <div class="hiddenDanger_list_charts" id="hiddenDanger_chart' + (i + 1) + '"></div>\n' +
+						'            <span>' + (i + 1) + '. ' + data[i].name + '</span>\n' +
+						'        </li>\n';
+				}
+			} else {
+				html += '<div class="noData"><span>暂无数据</span></div>'
+			}
+
+			$('.hiddenDanger_listbox').html(html);
+
+
+			//加载chart图形
+			if (data.length > 0) {
+				for (var j = 0; j < data.length; j++) {
+					var hiddenDangerChart = echarts.init(document.getElementById('hiddenDanger_chart' + (j + 1)));
+					//配置颜色 排查占比低于80%则用另一种颜色显示
+					var showColor = '';
+					if (data[j].checked < 80) {
+						showColor = ['#f9802a', 'rgba(255,255,255,0.3)'];
+					} else {
+						showColor = ['#0097ff', 'rgba(255,255,255,0.3	)'];
+					}
+
+					var hiddenDangerChartOption = {
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a} <br/>{b}: {c} ({d}%)",
+						},
+						series: [{
+							name: '排查项占比',
+							type: 'pie',
+							radius: ['65%', '95%'],
+							hoverOffset: 5,
+							clockwise: false, //逆时钟
+							avoidLabelOverlap: false,
+							label: {
+								normal: {
+									show: true,
+									position: 'center',
+									formatter: function(argument) {
+										return ((data[j].checked / (data[j].checked + data[j].uncheck)) * 100) + '%' //中间显示文字
+									},
+									textStyle: {
+										fontSize: "14",
+										color: '#39CCCC',
+									}
+								},
+
+							},
+							labelLine: {
+								normal: {
+									show: false
+								}
+							},
+							data: [ //饼状图占比
+								{
+									value: data[j].checked,
+									name: "已排查"
+								},
+								{
+									value: data[j].uncheck,
+									name: "未排查"
+								}
+							]
+						}],
+						color: showColor
+
+
+					}
+					//清楚画布内容,以便重加载
+					hiddenDangerChart.clear();
+					hiddenDangerChart.setOption(hiddenDangerChartOption);
+				}
+			} else {
+
+			}
+
+
+			layer.close(layerIndex);
+		}
+	})
+</script>

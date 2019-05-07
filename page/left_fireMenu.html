@@ -1,0 +1,107 @@
+<ul>
+	<li value="1">
+		<i class="iconfont">&#xe659;</i>建筑管理<ins></ins>
+	</li>
+	<li value="2">
+		<i class="iconfont">&#xe663;</i>企业管理<ins></ins>
+	</li>
+	<li value="3">
+		<i class="iconfont">&#xe624;</i>图层管理<ins></ins>
+	</li>
+	<li value="4">
+		<i class="iconfont">&#xe621;</i>隐患排查<ins></ins>
+	</li>
+	<li value="5">
+		<i class="iconfont">&#xe63b;</i>三色预警<ins></ins>
+	</li>
+	<li value="6">
+		<i class="iconfont">&#xe647;</i>物联管理<ins></ins>
+	</li>
+	<li value="7">
+		<i class="iconfont">&#xe653;</i>视频监控<ins></ins>
+	</li>
+	<li value="8">
+		<i class="iconfont">&#xe625;</i>重大危险源<ins></ins>
+	</li>
+	<li value="9">
+		<i class="iconfont">&#xe62f;</i>警力分布
+	</li>
+<!-- 	<li value="10">
+		<i class="iconfont">&#xe665;</i>统计
+	</li> -->
+</ul>
+<script type="text/javascript">
+	layui.use(['layer', 'form'], function() {
+		var form = layui.form,
+			layer = layui.layer,
+			layerIndex = '';
+		//点击左侧消防管理列表
+		$('.left_fireMenu').find('ul').find('li').each(function() {
+			$(this).click(function() {
+				$(this).addClass('left_fireMenuClick').siblings().removeClass('left_fireMenuClick');
+				//点击建筑
+				if ($(this).val() == 1) {
+					//收起消防管理列表,显示建筑管理信息
+					moveLeft('.left_fireMenu', 1000);
+					//等待上一个模块收起在显示另一个模块
+					setTimeout(function() {
+						//移动到bottom-1px的位置
+						moveUp('.bottom_buildingList', '-1px', 1000);
+					}, 800)
+					//获取建筑信息列表
+					getBuildList();
+
+				}
+				//点击图层管理
+				else if ($(this).val() == 3) {
+					//收起消防管理列表,显示图层管理信息
+					moveLeft('.left_fireMenu', 1000);
+					//等待上一个模块收起在显示另一个模块
+					setTimeout(function() {
+						moveRight('.left_layerManage', 1000);
+					}, 1000)
+				}
+				//点击隐患排查
+				else if ($(this).val() == 4) {
+					//收起消防管理列表,显示隐患排查信息
+					moveLeft('.left_fireMenu', 1000);
+					//等待上一个模块收起在显示另一个模块
+					setTimeout(function() {
+						moveUp('.bottom_hiddenDanger', '-1px', 1000);
+						getHiddenDangerCharts();
+					}, 1000)
+				}
+				//点击三色预警
+				else if ($(this).val() == 5) {
+					//收起消防管理列表,显示三色预警信息
+					moveLeft('.left_fireMenu', 1000);
+					//等待上一个模块收起在显示另一个模块
+					setTimeout(function() {
+						moveUp('.bottom_threeColorWarning', '-1px', 1000);
+						getThreeColorWarning();
+					}, 1000)
+				}
+				//点击消防物联
+				else if ($(this).val() == 6) {
+					//替换背景色
+					getTintBg();
+					//收起消防管理列表,显示消防物联信息
+					moveLeft('.left_fireMenu', 1000);
+					//等待上一个模块收起在显示另一个模块
+					setTimeout(function() {
+						moveRight('.left_iotMod', 1000);
+						//1s后显示加载动画
+						setTimeout(function() {
+							//加载物联信息
+							getIotInfo();
+						}, 1000)
+					}, 1000)
+
+
+				}
+
+
+			})
+		})
+	})
+</script>

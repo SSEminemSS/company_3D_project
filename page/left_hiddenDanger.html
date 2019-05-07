@@ -1,0 +1,213 @@
+<!-- 标题 -->
+<div class="left_hiddenDanger_title">
+	<i class="iconfont">&#xe65c;</i>
+	<span>深圳湾生态科技园6栋</span>
+	<i class="iconfont left_hiddenDanger_close">&#xe65f;</i>
+</div>
+<!-- 统计 -->
+<div class="left_hiddenDanger_count">
+	<div class="left_hiddenDanger_count_option">
+		<strong>3352</strong><span>消防设施数</span>
+	</div>
+	<div class="left_hiddenDanger_count_option">
+		<strong>768</strong><span>巡查次数</span>
+	</div>
+	<div class="left_hiddenDanger_count_option">
+		<strong>231</strong><span>传感器数</span>
+	</div>
+</div>
+<!-- 记录数据图形 -->
+<div class="left_hiddenDanger_log">
+	<div class="left_hiddenDanger_log_title">
+		<i class="iconfont">&#xe635;</i><i class="iconfont">&#xe635;</i>
+		<span>巡查记录</span>
+	</div>
+	<div class="left_hiddenDanger_log_chart">
+		<div id="hiddenDanger_log_chart"></div>
+	</div>
+</div>
+<!-- 消防物联数据图形 -->
+<div class="left_hiddenDanger_iot">
+	<div class="left_hiddenDanger_iot_title">
+		<i class="iconfont">&#xe635;</i><i class="iconfont">&#xe635;</i>
+		<span>消防物联</span>
+	</div>
+	<div class="left_hiddenDanger_iot_chart">
+		<div class="left_hiddenDanger_iot_chart_info">
+
+		</div>
+		<div id="hiddenDanger_iot_chart"></div>
+	</div>
+</div>
+<script type="text/javascript">
+	layui.use(['layer', 'form'], function() {
+		var form = layui.form,
+			layer = layui.layer,
+			layerIndex = '';
+		//点击关闭隐患排查详细信息窗口 向左隐藏
+		$('body').on('click','.left_hiddenDanger_close',function(){
+			moveLeft('.left_hiddenDanger',800);
+		})
+					
+		//加载隐患排查详细信息
+		window.getHiddenDangerInfo = function(id){
+			//巡查记录柱状图
+			var BChart = echarts.init(document.getElementById('hiddenDanger_log_chart'));
+			var BChartOption = {
+				tooltip: {
+					trigger: 'axis',
+				},
+				xAxis:{
+					data:['日巡查','月巡查','消防监控室检查'],
+					axisLabel:{
+						textStyle:{
+							color:'white',
+							fontSize:12,
+						},
+						interval:0,  
+					},
+					axisTick:{
+						show:false,
+					},
+					axisLine:{
+						show:true,
+						lineStyle:{
+							color:'rgba(255,255,255,0.2)',
+						}
+					}
+				},
+				legend: {
+					itemWidth: 10,
+					itemHeight: 10,
+					textStyle:{
+						color:'white',
+					},
+					inactiveColor:'gray',
+					data: ['已检查', '合格数', '异常数', '已整改','未整改']
+				},
+				grid:{
+					top:25,
+					bottom:50,
+					right:20,
+					left:40,
+				},
+				yAxis:{
+					type:'value',
+					splitNumber:6,
+					show:true,
+					min:0,
+					max:360,
+					axisLabel:{
+						textStyle:{
+							color:'white'
+						}
+					},
+					splitLine:{
+						show:false,
+					},
+					axisTick:{
+						show:false,
+					},
+					axisLine:{
+						show:true,
+						lineStyle:{
+							color:'rgba(255,255,255,0.2)',
+						}
+					}
+				},
+				series:[{
+					name:'已检查',
+					type: 'bar',
+					barWidth:10,
+					data:[180,300,300],
+				},
+				{
+					name:'合格数',
+					type: 'bar',
+					barWidth:10,
+					data:[160,220,220],
+				},
+				{
+					name:'异常数',
+					type: 'bar',
+					barWidth:10,
+					data:[40,90,100],
+				},
+				{
+					name:'已整改',
+					type: 'bar',
+					barWidth:10,
+					data:[40,90,100],
+				},
+				{
+					name:'未整改',
+					type: 'bar',
+					barWidth:10,
+					data:[20,60,80],
+				}
+				],
+				//配置颜色
+				color:['#36e5ff','#007aff','#ff8519','#45ff56','#e8395d',],
+				
+			}
+			//清楚画布内容,以便重加载
+			BChart.clear();
+			BChart.setOption(BChartOption);
+			
+			//填充物联信息
+			var html = '<div class="left_hiddenDanger_iot_chart_info_title">设备异常原因</div>\n' +
+			'           <div class="left_hiddenDanger_iot_chart_info_row"><label>主机故障</label><span><i>1</i>起</span></div>\n' +
+			'           <div class="left_hiddenDanger_iot_chart_info_row"><label>主机报警</label><span><i>2</i>起</span></div>\n' +
+			'           <div class="left_hiddenDanger_iot_chart_info_row"><label>传感器异常</label><span><i>0</i>起</span></div>\n' +
+			'           <div class="left_hiddenDanger_iot_chart_info_error">异常率： 2.3%</div>\n';
+			$('.left_hiddenDanger_iot_chart_info').html(html);
+			
+			//加载饼状图
+			var pChart = echarts.init(document.getElementById('hiddenDanger_iot_chart'));
+			var pChartOption = {
+				series:[{
+					name:'设备正常率',
+					type:'pie',
+					radius: ['65%', '85%'],
+					hoverOffset:5,
+					clockwise:false,//逆时钟
+					avoidLabelOverlap: false,
+					label:{
+						normal:{
+							show:true,
+							position:'center',
+							formatter:'{a|97.7%}\n {b|设备正常率}',
+							rich:{
+								a:{
+									color:'white',
+									fontSize:18,
+									lineHeight:30,
+								},
+								b:{
+									color:'white',
+									fontSize:14,
+								}
+							}
+						},
+						
+					},
+					labelLine:{
+						normal:{
+							show:false
+						}
+					},
+					data:[//饼状图占比
+						{value:75,name:"正常"},
+						{value:25,name:"损坏"}
+					]
+				}],
+				color:['#36e5ff','#fb973f'],
+				
+				
+			}
+			//清楚画布内容,以便重加载
+			pChart.clear();
+			pChart.setOption(pChartOption);
+		}
+	})
+</script>

@@ -1,0 +1,1182 @@
+html,body,.main_bg{
+	width: 100%;
+	height: 100%;
+}
+.main_bg{
+	position: relative;
+	overflow: hidden;
+}
+/* 顶部功能信息 */
+.main_head{
+	height: 120px;
+	padding: 0 25px;
+	position: absolute;
+	top: 15px;
+	width: calc(100% - 50px);
+	
+	
+}
+.navBar{
+	width: 100%;
+	height: 70px;
+}
+/* 64栅格 */
+.logo{
+	width: 220px;
+	height: 70px;
+	user-select:none;
+}
+.logo svg:first-child{
+	float: left;
+	width: 70px;
+	height: 70px;
+}
+.logo i{
+	color: white;
+	font-size: 18px;
+	float: left;
+	width: 110px;
+	height: 25px;
+	margin-top: 34px;
+}
+.top_menu{
+	height: 68px;
+	width: 310px;
+	
+}
+.top_menu_btn{
+	width: 237px;
+	height: 34px;
+	border: 1px solid rgba(165, 208, 255,0.5);
+	margin-top: 18px;
+	border-radius: 3px;
+	background-color: rgba(26, 55, 90, 0.152);
+}
+.top_menu_btn_location{
+	width: 100px;
+	height: 34px;
+	text-align: center;
+	line-height: 34px;
+	color: white;
+	border-right: 1px solid rgba(165, 208, 255,0.5);
+}
+.top_menu_btn_location:hover,.top_menu_btn_function:hover{
+	cursor: pointer;
+	background-color: rgba(26, 55, 90, 0.32);
+	box-shadow: inset 0px 0px 16px 0px rgba(0, 42, 88, 0.3);
+}
+.top_menu_btn_location span{
+	display: inline-block;
+	width: 70px;
+	height: 34px;
+	float: left;
+	overflow: hidden;
+	text-indent: 5px;
+}
+.top_menu_btn_location i{
+	width: 16px;
+	height: 16px;
+	margin-top: 10px;
+}
+.top_menu_btn_location_show{
+	background-color: white;
+/* 	width: 100%;
+	height: 178px; */
+	padding: 10px;
+	color: #797979;
+	margin-top: 36px;
+}
+.top_menu_btn_location_show_title{
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+}
+.top_menu_btn_location_show_title i{
+	font-size: 14px;
+	float: right;
+}
+.top_menu_btn_location_show_title i:hover{
+	cursor: pointer;
+}
+.top_menu_btn_location_show_area,.top_menu_btn_location_show_street{
+	margin-bottom: 15px;
+}
+.top_menu_btn_location_show_area div:last-child dl dd:hover,.top_menu_btn_location_show_street div:last-child dl dd:hover{
+	background-color: #d5e6f0 !important;
+}
+.top_menu_btn_location_show_area div:last-child dl dd.layui-this,.top_menu_btn_location_show_street div:last-child dl dd.layui-this{
+	background-color:#00a2ff !important;
+}
+
+.top_menu_btn_function{
+	width: 136px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	color: white;
+	text-indent: 5px;
+}
+.top_menu_btn_function i:first-child{
+	font-size: 24px;
+	float: left;
+    margin-left: 8px;
+}
+.top_menu_btn_function span{
+	display: inline-block;
+	float: left;
+}
+.top_menu_btn_function i:last-child{
+	font-size: 16px;
+    margin-right: 5px;
+}
+.top_menu_btn_function_show{
+	width: 137px;
+	color: #797979;
+	margin-left: 100px;
+	margin-top: 36px;
+	background-color: white;
+}
+.top_menu_btn_function_show li{
+	padding: 12px 10px;
+}
+.top_menu_btn_function_show li:hover{
+	background-color: #00a2ff;
+	color: white;
+	cursor: pointer;
+}
+.top_menu_btn_function_show li i{
+	float: left;
+    margin-right: 10px;
+    margin-top: -4px;
+    font-size: 24px;
+}
+.top_menu_user{
+	width: 70px;
+	height: 70px;
+	display: none;
+}
+.top_menu_user svg{
+	width: 50px;
+	height: 50px;
+	margin-left: 10px;
+	margin-top: 10px;
+	cursor: pointer;
+}
+.navBar_hr{
+	width: 1px;
+	height: 30px;
+	margin-right: 8px;
+	margin-top: 22px;
+	float: left;
+	background-color: rgba(141, 219, 255,0.502);
+}
+.infoBar{
+	width: 120px;
+	margin-top: 15px;
+	float: left;
+	height: 50px;
+	color: white;
+	text-shadow: 2px 2px 2px black;
+	user-select:none;
+}
+.infoBar h2{
+	font-size: 22px;
+	letter-spacing: 8px;
+}
+.infoBar span{
+	font-size: 12px;
+	letter-spacing: 0.5px;
+}
+
+/* 右下工具栏 */
+.rightBottom_toolBar{
+	position: fixed;
+	width: 40px;
+	bottom: 20px;
+	right: 25px;
+	text-shadow: 2px 2px 2px black
+}
+.rightBottom_toolBar ul{
+	width: 40px;
+    border: 1px solid rgba(201, 227, 255, 0.5);
+    text-align: center;
+	background-color: rgba(20, 44, 72, 0.4);
+	margin-bottom: 20px;
+	border-radius: 5px;
+}
+.rightBottom_toolBar ul li{
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 5px;
+	line-height: 30px;
+}
+.rightBottom_toolBar ul li:hover{
+	background-color: #007aff;
+	cursor: pointer;
+}
+.rightBottom_toolBar ul li i{
+	color: white;
+	font-size: 22px;
+}
+.rightBottom_toolBar span{
+	width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 2px solid rgba(201, 227, 255, 0.5);
+    display: block;
+    background-color: rgba(0, 0, 0, 0.3);
+	margin-left: 3px;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;
+}
+.rightBottom_toolBar span i{
+	color: white;
+    font-size: 20px;
+}
+
+
+/* 左侧消防管理功能 */
+.left_fireMenu{
+	width: 160px;
+	font-size: 14px;
+	position: absolute;
+	top: 190px;
+	left: 25px;
+	color: white;
+/* 	text-shadow: 2px 2px 2px black */
+	background: url(../img/left_menu_bg.png) left top no-repeat;
+}
+.left_fireMenu ul{
+	width: 160px;
+/*    border: 1px solid rgba(165, 208, 255, 0.251);
+    background-color: rgba(26, 55, 90, 0.502);
+    box-shadow: inset 0px 6px 8px 0px #274a79ad;
+	border-radius: 10px; */
+	padding: 15px 0;
+}
+.left_fireMenu ul li{
+	padding: 15px 12px;
+	position: relative;
+}
+.left_fireMenu ul li:hover{
+	background-color: rgba(1, 31, 102,0.1);
+/* 	box-shadow: inset 0px 0px 16px 0px rgba(0, 42, 88, 0.5); */
+	cursor: pointer;
+}
+.left_fireMenu ul li:hover i{
+	/* color: #007aff; */
+}
+.left_fireMenuClick{
+	background-color: rgba(1, 31, 102,0.4);
+	/* box-shadow: inset 0px 0px 16px 0px rgba(0, 42, 88, 0.5); */
+}
+.left_fireMenuClick i{
+	color: #00a2ff;
+}
+.left_fireMenu ul li i{
+	float: left;
+    margin-top: -8px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 28px;
+}
+.left_fireMenu ul li ins{
+	position: absolute;
+	height: 2px;
+	width: 80%;
+	bottom: 0px;
+	left: 10%;
+	background: url(../img/left_menu_line.png) left top no-repeat;
+	/* background-color: #707171; */
+	/* border-bottom: 1px solid #4792d8; */
+}
+
+/* 左侧物联模块 */
+.left_iotMod{
+	width: 348px;
+	height: 818px;
+	position: absolute;
+	left: -370px;
+	top: 160px;
+	background-image: -moz-linear-gradient( 90deg, rgb(48,176,253) 0%, rgb(29,67,163) 100%);
+	background-image: -webkit-linear-gradient( 90deg, rgb(48,176,253) 0%, rgb(29,67,163) 100%);
+	background-image: -ms-linear-gradient( 90deg, rgb(48,176,253) 0%, rgb(29,67,163) 100%);
+	border-radius: 6px;
+	padding: 10px;
+	color: white;
+}
+.iotMod_head{
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+}
+.iotMod_head span{
+	font-size: 14px;
+}
+.iotMod_head i:first-child,.iotMod_head i:nth-child(2){
+	font-size: 14px;
+	color: rgb(0, 215, 233);
+}
+.iotMod_head i:nth-child(2){
+	opacity: 0.6;
+	margin-left: -5px;
+}
+.close_icon{
+	width: 14px;
+    height: 14px;
+	font-size: 14px;
+    float: right;
+}
+.close_iot:hover{
+	cursor: pointer;
+}
+.iotMod_data{
+	width: 100%;
+	height: 215px;
+}
+.iotMod_data_info{
+	width: 100%;
+	height: 35px;
+	
+}
+.iotMod_data_info_option{
+	width: calc(100%/3);
+	height: 35px;
+	line-height: 35px;
+	float: left;
+}
+.iotMod_data_info_option i{
+	float: left;
+    margin-left: 20px;
+    margin-right: 6px;
+    font-size: 24px;
+    color: #36e5ff;
+}
+.iotMod_data_chart{
+	width: 100%;
+	height: 100px;
+}
+.iotMod_data_chart_option{
+	width: calc(100%/3);
+	height: 100%;
+	float: left;
+}
+.iotMod_data_count{
+	width: 100%;
+	height: 60px;
+	
+}
+.iotMod_data_count_option{
+    width: calc(100%/3 - 10px);
+    float: left;
+    height: 54px;
+    background-color: rgba(163, 205, 255, 0.102);
+    margin: 3px 5px;
+    text-align: center;
+}
+.iotMod_data_count_option_line{
+	width: 100%;
+	height: 27px;
+	line-height: 27px;
+	background-color: rgba(163, 205, 255, 0.102);
+}
+.iotMod_data_count_option_line:first-child{
+	margin-bottom: 1px;
+}
+.iotMod_timeInfo{
+	margin-bottom: 5px;
+	width: 100%;
+	height: 275px;
+}
+.iotMod_timeInfo_title{
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+}
+.iotMod_timeInfo_title i{
+	font-size: 14px;
+	color: rgb(0, 215, 233);
+}
+.iotMod_timeInfo_title i:nth-child(2){
+	opacity: 0.6;
+	margin-left: -5px;
+}
+.iotMod_timeInfo_tab{
+	color: white;
+	width: 100%;
+}
+.iotMod_timeInfo_tab hr{
+	background-color: rgba(165, 208, 255,0.5) !important;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	width: 95% !important;
+    float: left;
+}
+.iotMod_timeInfo_tab_title{
+	height: 20px !important;
+	text-shadow: none;
+	border-bottom: none !important;
+}
+.iotMod_timeInfo_tab_title li{
+    height: 20px !important;
+    line-height: 20px !important;
+    padding: 0 3px !important;
+    border: 1px solid rgba(165, 208, 255,0.2);
+    border-radius: 3px;
+    background-color: rgba(163, 205, 255, 0.202);
+}
+.iotMod_timeInfo_tab_this{
+	background-color: rgb(3, 86, 199) !important;
+}
+.iotMod_timeInfo_tab_title li:after{
+	height: 20px !important;
+	border: none !important;
+}
+.layui-this{
+	color: white !important;
+}
+.iotMod_timeInfo_tab_content{
+	padding: 0;
+	width: 100%;
+    height: 209px;
+    overflow: auto;
+}
+.iotMod_timeInfo_tab_content ul li{
+	padding: 10px 0;
+    border-bottom: 1px solid rgba(165, 208, 255,0.5);
+	float: left;
+    width: 96%;
+}
+.iotMod_timeInfo_tab_content ul li:hover{
+	cursor: pointer;
+	background-color: rgba(163, 205, 255,0.102);
+}
+.iotMod_timeInfo_tab_content ul li span:first-child{
+	width: 60%;
+	display: inline-block;
+	float: left;
+}
+.iotMod_timeInfo_tab_content ul li span:nth-child(2),.iotMod_timeInfo_tab_content ul li span:nth-child(3){
+	width: 18%;
+	display: inline-block;
+	float: left;
+	text-align: center;
+}
+.iotMod_timeInfo_tab_content ul li span:nth-child(3){
+	color: red;
+	text-shadow: 1px 1px 1px #7d5252;
+}
+.iotMod_timeInfo_tab_content ul li span i{
+	font-size: 12px !important;
+	margin-right: 8px;
+}
+.iotMod_timeInfo_i_red{
+	color: red;
+}
+.iotMod_errorCount{
+	width: 100%;
+	height: 290px;
+}
+.iotMod_errorCount_title{
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+}
+.iotMod_errorCount_title i{
+	font-size: 14px;
+	color: rgb(0, 215, 233);
+}
+.iotMod_errorCount_title i:nth-child(2){
+	opacity: 0.6;
+	margin-left: -5px;
+	margin-right: 3px;
+}
+#errorChart{
+	width: 100%;
+	height: 255px;
+}
+
+/* 物联实时信息窗口样式 */
+.iotMod_realTimeInfo{
+	display: none;
+	position: absolute;
+	width: 268px;
+	height: 380px;
+	background-image: -moz-linear-gradient( 90deg, rgb(48,176,253) 0%, rgb(29,67,163) 100%);
+	background-image: -webkit-linear-gradient( 90deg, rgb(48,176,253) 0%, rgb(29,67,163) 100%);
+	background-image: -ms-linear-gradient( 90deg, rgb(48,176,253) 0%, rgb(29,67,163) 100%);
+	padding: 10px;
+	color: white;
+	left: 420px;
+}
+
+.iotMod_realTimeInfo_title{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+}
+.iotMod_realTimeInfo_title span{
+	font-size: 16px;
+	margin-left: 10px;
+}
+.title_sanjiao{
+	color: #36e5ff;
+    font-size: 12px;
+    margin: 0px -1px;
+    float: left;
+}
+.iotMod_realTimeInfo_title i:last-child{
+	font-size: 14px;
+	color: white;
+	float: right;
+	margin-right: 5px;
+}
+.iotMod_realTimeInfo_title i:last-child:hover{
+	color: #36e5ff;
+	cursor: pointer;
+}
+.iotMod_realTimeInfo_content{
+	height: 100%;
+}
+.iotMod_realTimeInfo_content hr{
+	width: 80%;
+	text-align: center;
+	margin: 8px auto;
+	background-color: #2493a8 !important;
+	box-shadow: 2px 1px 2px rgba(0, 147, 255, 0.302);
+}
+.iotMod_realTimeInfo_content_baseInfo_row{
+	padding: 4px 2px;
+}
+.iotMod_realTimeInfo_content_warnInfo{
+	overflow: auto;
+	height: calc(100% - 120px);
+}
+.iotMod_realTimeInfo_content_warnInfo_title:first-child{
+	margin-top: 0px !important;
+}
+.iotMod_realTimeInfo_content_warnInfo_title{
+	padding: 4px 2px;
+	font-size: 14px;
+	margin-top: 15px;
+}
+.iotMod_realTimeInfo_content_warnInfo_row2,.iotMod_realTimeInfo_content_warnInfo_row1{
+	padding: 4px 2px;
+	font-size: 12px;
+	
+}
+.iotMod_realTimeInfo_content_warnInfo_row2 label:nth-child(3){
+	margin-left: 50px;
+}
+
+/* 图层管理界面 */
+.left_layerManage{
+	position: absolute;
+	width: 250px;
+	height: 290px;
+	padding: 10px;
+	color: white;
+	left: -275px;
+	top: 288px;
+	border-radius: 6px;
+	background-image: -moz-linear-gradient( 90deg, rgb(48,176,253) 0%, rgb(29,67,163) 100%);
+	background-image: -webkit-linear-gradient( 90deg, rgb(48,176,253) 0%, rgb(29,67,163) 100%);
+	background-image: -ms-linear-gradient( 90deg, rgb(48,176,253) 0%, rgb(29,67,163) 100%);
+}
+.layerManage_title{
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+}
+.layerManage_title span{
+	font-size: 16px;
+}
+.layerManage_title i{
+	font-size: 14px;
+	margin-top: 0px !important;
+}
+.layerManage_list{
+	width: 100%;
+}
+.layerManage_list li{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	background-color: rgba(0, 33, 73, 0.2);
+	border-radius: 3px;
+	margin-top: 10px;
+	text-indent: 15px;
+}
+.layerManage_list li:hover{
+	background-color: rgba(0, 33, 73, 0.4) ;
+}
+
+.layerManage_list li span{
+	float: left;
+}
+.layerManage_list_checkbox_box{
+	float: right;
+	margin-right: 10px;
+}	
+/* 建筑管理 */
+.bottom_buildingList{
+	width: 1481px;
+	height: 214px;
+	position: absolute;
+	bottom: -214px;
+	left: 50%;
+	margin-left: -740px;
+}
+.buildingList_title{
+	width: 365px;
+	height: 36px;
+}
+.buildingList_title_name{
+	width: 161px;
+	height: 36px;
+	line-height: 36px;
+	color: white;
+	float: left;
+	font-size: 16px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	background-image: -moz-linear-gradient( 90deg, rgb(31, 82, 175), rgb(29, 68, 164));
+	background-image: -webkit-linear-gradient( 90deg, rgb(31, 82, 175), rgb(29, 68, 164));
+	background-image: -ms-linear-gradient( 90deg, rgb(31, 82, 175), rgb(29, 68, 164));
+	border-top: 1px solid #1d43a3;
+	border-left: 1px solid #1d43a3;
+	border-right: 1px solid #1d43a3;
+	user-select:none;
+}
+.buildingList_title_name i{
+	font-size: 24px;
+    margin-left: 14px;
+    float: left;
+    margin-right: 7px;
+    margin-top: -2px;
+}
+.buildingList_title_search{
+	width: 200px;
+	height: 34px;
+	float: left;
+	position: relative;
+	
+}
+.buildingList_title_search i{
+	font-size: 20px;
+	color: white;
+	position: absolute;
+    right: 10px;
+    top: 6px;
+    cursor: pointer;
+}
+.buildingList_title_search input{
+	width: 200px;
+	height: 34px;
+	background-color: rgb(1, 46, 100);
+	color: white;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border:1px solid rgb(32, 83, 176);
+	text-indent: 10px;
+	margin-left: -1px;
+}
+.buildingList_title_search input::-webkit-input-placeholder{
+            color:white;
+        }
+.buildingList_title_search input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+            color:white;
+        }
+.buildingList_title_search input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+            color:white;
+        }
+.buildingList_title_search input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
+            color:white;
+        }
+.buildingList_listbox{
+	background-image: -moz-linear-gradient( 90deg, rgb(48,176,253), rgb(31, 82, 175));
+	background-image: -webkit-linear-gradient( 90deg, rgb(48,176,253), rgb(31, 82, 175));
+	background-image: -ms-linear-gradient( 90deg, rgb(48,176,253), rgb(31, 82, 175));
+}
+.bottom_toolbar{
+	position: absolute;
+	right: 2px;
+	top: 16px;
+}
+.bottom_toolbar_move,.bottom_toolbar_close{
+	width: 20px;
+	height: 20px;
+	border-radius: 3px;
+	text-align: center;
+	line-height: 20px;
+	float: left;
+	background-color: rgba(1, 46, 100, 0.702);
+	box-shadow: inset 0px 0px 5px 0px rgba(23, 170, 255, 0.83);
+	cursor: pointer;
+}
+.bottom_toolbar_move i{
+    color: rgb(0, 255, 255);
+    font-size: 14px;
+}
+.bottom_toolbar_close i{
+	color: rgb(0, 255, 255);
+	font-size: 12px;
+}
+.buildingList_listbox{
+	width: 1457px;
+	height: 120px;
+	padding: 28px 11px;
+}
+.noData{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: gray;
+}
+.buildingList_list{
+	width: 18%;
+	height: 120px;
+	float: left;
+	color: white;
+	margin: 0px 1%;
+	border-radius: 3px;
+	/* border-bottom: 1px solid rgba(163, 205, 255, 0.5); */
+	background-color: rgba(26, 55, 90,0.302);
+}
+.buildingList_list:hover{
+	cursor: pointer;
+	background-color: rgba(46, 223, 255, 0.2);
+}
+.buildingList_list_hover{
+	background-color: rgba(46, 223, 255, 0.2);
+}
+.buildingList_list_title {
+	width: 100%;
+	height: 38px;
+	line-height: 38px;
+	text-indent: 8px;
+}
+.buildingList_list_title i{
+	float: right;
+	margin-right: 8px;
+    font-size: 18px;
+    color: #00a2ff;
+}
+.buildingList_list_content{
+	width: 100%;
+	height: 82px;
+}
+.buildingList_list_content img{
+	width: 60px;
+	height: 60px;
+	float: left;
+	margin-left: 8px;
+	border-radius:3px
+}
+.buildingList_list_contentInfo{
+	float: left;
+	width: calc(100% - 73px);
+	font-size: 12px;
+	margin-right: 5px;
+}
+.buildingList_list_contentInfo span{
+	margin-top: 8px;
+	margin-left: 6px;
+	display: inline-block;
+	width: 100%;
+}
+.close_icon:hover,.bulidInfo_close:hover{
+	color: #36e5ff;
+	cursor: pointer;
+}
+
+/* 建筑详细信息 */
+.buildingInfo{
+	height: 502px;
+	width: 269px;
+	background-image: -moz-linear-gradient( 90deg, rgb(48,176,253) 0%, rgb(29,67,163) 100%);
+	background-image: -webkit-linear-gradient( 90deg, rgb(48,176,253) 0%, rgb(29,67,163) 100%);
+	background-image: -ms-linear-gradient( 90deg, rgb(48,176,253) 0%, rgb(29,67,163) 100%);
+	position: absolute;
+	left: 220px;
+	top:189px;
+	display: none;
+	color: white;
+	padding: 5px 17px;
+}
+.buildingInfo_topBar{
+	width: 100%;
+	height: 22px;
+	line-height: 22px;
+}
+.buildingInfo_topBar i{
+	float: right;
+    margin-top: 5px;
+    cursor: pointer;
+}
+.buildingInfo_title{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+}
+.buildingInfo_title h2{
+	font-size: 24px;
+	letter-spacing: 2px;
+}
+.buildingInfo_detail{
+	width: 100%;
+	height: 425px;
+}
+.buildingInfo_detail_name{
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	font-size: 16px;
+	display: inline-block;
+}
+.buildingInfo_detail_table tbody tr td{
+	padding: 7px 5px;
+	font-size: 12px;
+}
+.buildingInfo_detail_img{
+	width: 100%;
+}
+.buildingInfo_detail_img img{
+	width: 100%;
+	height: 102px;
+    border-radius: 3px;
+}
+.buildingInfo_detail_btnBox{
+	width: 100%;
+	height: 30px;
+	margin-top: 25px;
+}
+.buildingInfo_detail_btnBox button{
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	background-color: rgb(46, 223, 255);
+	border-radius: 3px;
+}
+
+/* 隐患排查模块 */
+.bottom_hiddenDanger{
+	width: 1481px;
+	height: 214px;
+	position: absolute;
+	bottom: -214px;
+	left: 50%;
+	margin-left: -740px;
+}
+.hiddenDanger_title{
+	width: 161px;
+	height: 36px;
+}
+.hiddenDanger_title_name{
+	width: 161px;
+	height: 36px;
+	line-height: 36px;
+	color: white;
+	float: left;
+	font-size: 16px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	background-image: -moz-linear-gradient( 90deg, rgb(31, 82, 175), rgb(29, 68, 164));
+	background-image: -webkit-linear-gradient( 90deg, rgb(31, 82, 175), rgb(29, 68, 164));
+	background-image: -ms-linear-gradient( 90deg, rgb(31, 82, 175), rgb(29, 68, 164));
+	user-select:none;
+}
+.hiddenDanger_title_name i{
+	font-size: 22px;
+    margin-left: 14px;
+    float: left;
+    margin-right: 7px;
+}
+.hiddenDanger_listbox{
+	width: 1457px;
+	height: 120px;
+	padding: 28px 11px;
+	background-image: -moz-linear-gradient( 90deg, rgb(48,176,253), rgb(31, 82, 175));
+	background-image: -webkit-linear-gradient( 90deg, rgb(48,176,253), rgb(31, 82, 175));
+	background-image: -ms-linear-gradient( 90deg, rgb(48,176,253), rgb(31, 82, 175));
+}
+.hiddenDanger_list{
+	width: 18%;
+	height: 120px;
+	float: left;
+	color: white;
+	margin: 0px 1%;
+	border-radius: 3px;
+	text-align: center;
+	font-size: 14px;
+	cursor: pointer;
+}
+.hiddenDanger_list:hover{
+	background-color: rgba(163, 205, 255, 0.2);
+}
+.hiddenDanger_list_charts{
+	width: 80px;
+	height: 80px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+/* 隐患排查详细界面 */
+.left_hiddenDanger{
+	width: 338px;
+	height: 578px;
+	color: white;
+	position: absolute;
+	padding: 10px;
+	top: 160px;
+	left: -360px;
+	background-image: -moz-linear-gradient( 90deg, rgb(48,176,253) 0%, rgb(29,67,163) 100%);
+	background-image: -webkit-linear-gradient( 90deg, rgb(48,176,253) 0%, rgb(29,67,163) 100%);
+	background-image: -ms-linear-gradient( 90deg, rgb(48,176,253) 0%, rgb(29,67,163) 100%);
+	border-radius: 3px;
+}
+.left_hiddenDanger_title{
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+}
+.left_hiddenDanger_title i:first-child{
+	font-size: 20px;
+    float: left;
+    color: #00d7e9;
+}
+.left_hiddenDanger_title span{
+	font-size: 16px;
+    margin-left: 10px;
+}
+.left_hiddenDanger_title i:last-child{
+	float: right;
+    font-size: 14px;
+    margin-right: 10px;
+}
+.left_hiddenDanger_title i:last-child:hover{
+	color: #36e5ff;
+	cursor: pointer;
+}
+.left_hiddenDanger_count{
+	width: 100%;
+	height: 80px;
+}
+.left_hiddenDanger_count_option{
+	width: calc(88%/3);
+    height: 60px;
+    float: left;
+    margin: 10px 2%;
+    background-color: rgba(163, 205, 255, 0.102);
+    border-radius: 3px;
+}
+.left_hiddenDanger_count_option strong,.left_hiddenDanger_count_option span{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	display: inline-block;
+}
+.left_hiddenDanger_count_option strong{
+	color: white;
+	font-size: 18px;
+}
+.left_hiddenDanger_log{
+	margin-top: 10px;
+	height: 270px;
+	width: 100%;
+	
+}
+.left_hiddenDanger_log_title{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+}
+.left_hiddenDanger_log_title i{
+	font-size: 14px;
+	color: rgb(0, 215, 233);
+}
+.left_hiddenDanger_log_title i:nth-child(2){
+	opacity: 0.6;
+	margin-left: -5px;
+}
+.left_hiddenDanger_log_chart{
+	width: 100%;
+	height: 240px;
+}
+#hiddenDanger_log_chart{
+	width: 100%;
+	height: 100%;
+}
+.left_hiddenDanger_iot{
+	width: 100%;
+	height: 180px;
+}
+.left_hiddenDanger_iot_title{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+}
+.left_hiddenDanger_iot_title i{
+	font-size: 14px;
+	color: rgb(0, 215, 233);
+}
+.left_hiddenDanger_iot_title i:nth-child(2){
+	opacity: 0.6;
+	margin-left: -5px;
+}
+.left_hiddenDanger_iot_chart{
+	width: 100%;
+	height: 150px;
+}
+.left_hiddenDanger_iot_chart_info{
+	width: 40%;
+	float: left;
+}
+.left_hiddenDanger_iot_chart_info_title,.left_hiddenDanger_iot_chart_info_row,.left_hiddenDanger_iot_chart_info_error{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+}
+.left_hiddenDanger_iot_chart_info_title{
+	font-size: 16px;
+}
+.left_hiddenDanger_iot_chart_info_row{
+	font-size: 14px;
+}
+.left_hiddenDanger_iot_chart_info_row span{
+	float: right;
+	margin-right: 10px;
+}
+.left_hiddenDanger_iot_chart_info_row span i{
+	color: white;
+	margin: 0 3px;
+}
+.left_hiddenDanger_iot_chart_info_error{
+	color: white;
+}
+
+#hiddenDanger_iot_chart{
+	width: 60%;
+	height: 100%;
+	float: left;
+}
+
+/* 三色预警 */
+.bottom_threeColorWarning{
+	width: 1481px;
+	height: 214px;
+	position: absolute;
+	bottom: -214px;
+	left: 50%;
+	margin-left: -740px;
+}
+.threeColorWarning_title{
+	width: 161px;
+	height: 36px;
+}
+.threeColorWarning_title_name{
+	width: 161px;
+	height: 36px;
+	line-height: 36px;
+	color: white;
+	float: left;
+	font-size: 16px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	background-image: -moz-linear-gradient( 90deg, rgb(31, 82, 175), rgb(29, 68, 164));
+	background-image: -webkit-linear-gradient( 90deg, rgb(31, 82, 175), rgb(29, 68, 164));
+	background-image: -ms-linear-gradient( 90deg, rgb(31, 82, 175), rgb(29, 68, 164));
+	user-select:none;
+}
+.threeColorWarning_title_name i{
+	font-size: 24px;
+	margin-left: 14px;
+	float: left;
+	margin-right: 7px;
+	margin-top: -2px;
+}
+.threeColorWarning_listbox{
+	width: 1449px;
+    height: 136px;
+    padding: 20px 15px;
+	background-image: -moz-linear-gradient( 90deg, rgb(48,176,253), rgb(31, 82, 175));
+	background-image: -webkit-linear-gradient( 90deg, rgb(48,176,253), rgb(31, 82, 175));
+	background-image: -ms-linear-gradient( 90deg, rgb(48,176,253), rgb(31, 82, 175));
+}
+.threeColorWarning_listbox_check{
+	width: 210px;
+	float: left;
+	color: white;
+}
+.threeColorWarning_listbox_check li{
+	margin-bottom: 8px;
+    width: calc(90% - 2px);
+    float: left;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 5%;
+	border-radius: 3px;
+	background-color: rgba(0, 33, 73, 0.2);
+}
+.threeColorWarning_listbox_check li:hover{
+	cursor: pointer;
+	background-color: rgba(0, 33, 73, 0.4) ;
+}
+.threeColorWarning_listbox_check li i{
+	float: left;
+    font-size: 12px;
+    margin-right: 5px;
+}
+.threeColorWarning_listbox_check li span{
+	float: left;
+}
+.threeColorWarning_listbox_check_box{
+	float: right;
+}
+.threeColorWarning_listbox_chart{
+	height: 140px;
+    width: 140px;
+    float: left;
+    margin: 0 60px;
+}
+#threeColorWarning_chart{
+	width: 100%;
+	height: 100%;
+}
+.threeColorWarning_listbox_info{
+	width: calc(100% - 470px);
+    height: 140px;
+    float: left;
+	color: white;
+}
+.threeColorWarning_listbox_info_li{
+	width: calc((100% - 60px)/3);
+	height: 100%;
+	margin: 0 10px;
+	float: left;
+	overflow: auto;
+}
+.threeColorWarning_listbox_info_li span{
+	display: inline-block;
+    width: 95%;
+    height: 35px;
+    line-height: 35px;
+    text-indent: 5px;
+    border-bottom: 1px solid rgba(163, 205, 255,0.4);
+	font-size:12px ;
+}
+.threeColorWarning_listbox_info_li span:hover{
+	cursor: pointer;
+	background-color: rgba(163, 205, 255, 0.102);
+}
+.threeColorWarning_listbox_info_li span:first-child{
+	font-size: 14px !important;
+	font-weight: bold;
+    letter-spacing: 1px;
+}

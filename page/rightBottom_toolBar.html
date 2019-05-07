@@ -1,0 +1,72 @@
+<ul class="toolBar_list" style="display: none;">
+	<li value="1" data-info='相机复位'><i class="iconfont">&#xe62d;</i></li>
+	<li value="2" data-info='面积测绘'><i class="iconfont">&#xe657;</i></li>
+	<li value="3" data-info='测量'><i class="iconfont">&#xe626;</i></li>
+	<li value="4" data-info='漫游'><i class="iconfont">&#xe62e;</i></li>
+	<li value="5" data-info='监控图层开关'><i class="iconfont">&#xe666;</i></li>
+	<li value="6" data-info='导航'><i class="iconfont">&#xe630;</i></li>
+	<li value="7" data-info='指南'><i class="iconfont">&#xe61d;</i></li>
+	<li value="8" data-info='图层开关'><i class="iconfont">&#xe627;</i></li>
+	<li value="9" data-info='顶视图'><i class="iconfont">&#xe638;</i></li>
+	<li value="10" data-info='设置'><i class="iconfont">&#xe639;</i></li>
+</ul>
+<span class="showToolBarBtn">
+	<i class="iconfont">&#xe62a;</i>
+</span>
+
+<script type="text/javascript">
+	//右下工具栏操作
+	$('.toolBar_list').find('li').each(function() {
+		var info = $(this).data('info');
+		//鼠标经过工具栏弹出tip信息
+		$(this).mouseenter(function() {
+			layer.tips(info, $(this), {
+				tips: 4
+			})
+		})
+		//点击工具栏选项事件
+		$(this).click(function() {
+			//点击相机复位 
+			if ($(this).val() == 1) {
+				layer.msg($(this).data('info'));
+			}
+			//面积测绘
+			else if ($(this).val() == 2) {
+				layer.msg($(this).data('info'));
+			}
+			//测量
+			else if ($(this).val() == 3) {
+				layer.msg($(this).data('info'));
+			}
+			//漫游
+			else if ($(this).val() == 4) {
+				layer.msg($(this).data('info'));
+			}
+			//监控图层开关
+			else if ($(this).val() == 5) {
+				layer.msg($(this).data('info'));
+			}
+			//导航
+			else if ($(this).val() == 6) {
+				layer.msg($(this).data('info'));
+			}
+			//指南
+			else if ($(this).val() == 7) {
+				layer.msg($(this).data('info'));
+			}
+			//图层开关
+			else if ($(this).val() == 8) {
+				layer.msg($(this).data('info'));
+			}
+			//顶视图
+			else if ($(this).val() == 9) {
+				layer.msg($(this).data('info'));
+			}
+			//设置
+			else if ($(this).val() == 10) {
+				layer.msg($(this).data('info'));
+			}
+		})
+
+	})
+</script>

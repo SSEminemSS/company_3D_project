@@ -1,0 +1,10 @@
+.bg3 {
+  border-radius: 3px;
+  background-color: rgba(163, 205, 255, 0.102);
+  position: absolute;
+  left: 272px;
+  top: 217px;
+  width: 103px;
+  height: 60px;
+  z-index: 354;
+}

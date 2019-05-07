@@ -1,0 +1,244 @@
+<!-- 标题 -->
+<div class="threeColorWarning_title">
+	<div class="threeColorWarning_title_name">
+		<i class="iconfont">&#xe63b;</i>
+		<span>三色预警</span>
+	</div>
+</div>
+<!-- 窗口功能 -->
+<div class="bottom_toolbar">
+	<!-- 窗口向上显示，向下隐藏部分 -->
+	<div class="bottom_toolbar_move"><i class="iconfont bottomDown">&#xe619;</i></div>
+	<!-- 窗口关闭 -->
+	<div class="bottom_toolbar_close" title="关闭"><i class="iconfont bottom_close">&#xe65f;</i></div>
+</div>
+<!-- 三色预警列表 -->
+<div class="threeColorWarning_listbox">
+	<ul class="layui-form threeColorWarning_listbox_check">
+		<li>
+			<i class="iconfont" style="color: #e8395d;">&#xe64e;</i><span>红色预警</span>
+			<div class="threeColorWarning_listbox_check_box">
+				<input type="checkbox" lay-skin="switch" lay-filter="checkbox_redWarn" />
+			</div>
+		</li>
+		<li>
+			<i class="iconfont" style="color: #fea863;">&#xe64e;</i><span>黄色预警</span>
+			<div class="threeColorWarning_listbox_check_box">
+				<input type="checkbox" lay-skin="switch" lay-filter="checkbox_yellowWarn" />
+			</div>
+		</li>
+		<li>
+			<i class="iconfont" style="color: #00d7e9;">&#xe64e;</i><span>绿色预警</span>
+			<div class="threeColorWarning_listbox_check_box">
+				<input type="checkbox" checked lay-skin="switch" lay-filter="checkbox_greenWarn" />
+			</div>
+		</li>
+	</ul>
+	<div class="threeColorWarning_listbox_chart">
+		<div id="threeColorWarning_chart"></div>
+	</div>
+	<ul class="threeColorWarning_listbox_info">
+		<li class="threeColorWarning_listbox_info_li"></li>
+		<li class="threeColorWarning_listbox_info_li"></li>
+		<li class="threeColorWarning_listbox_info_li"></li>
+	</ul>
+</div>
+<script type="text/javascript">
+	layui.use(['layer', 'form'], function() {
+		var form = layui.form,
+			layer = layui.layer,
+			layerIndex = '';
+		form.render();
+		//点击三色预警模块的列表项事件
+		$('.threeColorWarning_listbox_info_li').on('click', 'span', function() {
+			layer.msg($(this).data('id'));
+		})
+
+		//加载三色预警信息
+		window.getThreeColorWarning = function() {
+			//假数据
+			var data = {
+				name: '深圳湾\n生态园',
+				redNum: 15,
+				yellowNum: 60,
+				greenNum: 25,
+				redInfo: [{
+					id: 1,
+					address: '深圳湾生态园1栋'
+				}, {
+					id: 2,
+					address: '深圳湾生态园2栋'
+				}, {
+					id: 3,
+					address: '深圳湾生态园3栋'
+				}],
+				yellowInfo: [{
+					id: 4,
+					address: '深圳湾生态园4栋'
+				}, {
+					id: 5,
+					address: '深圳湾生态园5栋'
+				}, {
+					id: 6,
+					address: '深圳湾生态园6栋'
+				}, {
+					id: 7,
+					address: '深圳湾生态园7栋'
+				}, {
+					id: 8,
+					address: '深圳湾生态园8栋'
+				}, {
+					id: 9,
+					address: '深圳湾生态园9栋'
+				}, {
+					id: 10,
+					address: '深圳湾生态园10栋'
+				}, {
+					id: 11,
+					address: '深圳湾生态园11栋'
+				}, {
+					id: 12,
+					address: '深圳湾生态园12栋'
+				}, {
+					id: 13,
+					address: '深圳湾生态园13栋'
+				}, {
+					id: 14,
+					address: '深圳湾生态园14栋'
+				}, {
+					id: 15,
+					address: '深圳湾生态园15栋'
+				}],
+				greenInfo: [{
+					id: 17,
+					address: '深圳湾生态园17栋'
+				}, {
+					id: 18,
+					address: '深圳湾生态园18栋'
+				}, {
+					id: 19,
+					address: '深圳湾生态园19栋'
+				}, {
+					id: 20,
+					address: '深圳湾生态园20栋'
+				}, {
+					id: 21,
+					address: '深圳湾生态园21栋'
+				}]
+			}
+			//加载数据
+			//ajax
+
+			//加载三色预警的饼状图
+			var threeColorChart = echarts.init(document.getElementById('threeColorWarning_chart'));
+
+			var threeColorChartOption = {
+				tooltip: {
+					trigger: 'item',
+					formatter: "{a} <br/>{b}: {c} ({d}%)",
+				},
+				series: [{
+					name: '三色预警占比',
+					type: 'pie',
+					radius: ['65%', '85%'],
+					hoverOffset: 5,
+					clockwise: false, //逆时钟
+					avoidLabelOverlap: false,
+					label: {
+						normal: {
+							show: true,
+							position: 'center',
+							formatter: function(argument) {
+								return data.name //中间显示文字
+							},
+							textStyle: {
+								fontSize: "14",
+								color: 'white',
+							}
+						},
+
+					},
+					labelLine: {
+						normal: {
+							lineStyle: {
+								color: 'white',
+							}
+						}
+					},
+					data: [ //饼状图占比
+						{
+							value: data.redNum,
+							name: "红色预警"
+						},
+						{
+							value: data.yellowNum,
+							name: "黄色预警"
+						},
+						{
+							value: data.greenNum,
+							name: "绿色预警"
+						}
+					]
+				}],
+				color: ['#e8395d', '#f5c313', '#46b646']
+
+
+			}
+			//清楚画布内容,以便重加载
+			threeColorChart.clear();
+			threeColorChart.setOption(threeColorChartOption);
+
+			//加载三色预警详细信息
+			//红色预警
+			var redHtml = '';
+			if (data.redInfo && data.redInfo.length) {
+				redHtml += '<span>红色预警' + data.redInfo.length + '个</span>\n';
+				for (var i = 0; i < data.redInfo.length; i++) {
+					redHtml += '<span data-id="' + data.redInfo[i].id + '">' + data.redInfo[i].address + '</span>\n';
+				}
+			} else {
+				redHtml += '<span>红色预警0个</span>\n'
+			}
+			$('.threeColorWarning_listbox_info li:eq(0)').html(redHtml);
+			//黄色预警
+			var yellowHtml = '';
+			if (data.yellowInfo && data.yellowInfo.length) {
+				yellowHtml += '<span>黄色预警' + data.yellowInfo.length + '个</span>\n';
+				for (var i = 0; i < data.yellowInfo.length; i++) {
+					yellowHtml += '<span data-id="' + data.yellowInfo[i].id + '">' + data.yellowInfo[i].address + '</span>\n';
+				}
+			} else {
+				yellowHtml += '<span>黄色预警0个</span>\n'
+			}
+			$('.threeColorWarning_listbox_info li:eq(1)').html(yellowHtml);
+			//绿色预警
+			var greenHtml = '';
+			if (data.greenInfo && data.greenInfo.length) {
+				greenHtml += '<span>绿色预警' + data.greenInfo.length + '个</span>\n';
+				for (var i = 0; i < data.greenInfo.length; i++) {
+					greenHtml += '<span data-id="' + data.greenInfo[i].id + '">' + data.greenInfo[i].address + '</span>\n';
+				}
+			} else {
+				greenHtml += '<span>绿色预警0个</span>\n'
+			}
+			$('.threeColorWarning_listbox_info li:eq(2)').html(greenHtml);
+
+		}
+		//点击三色预警选择按钮框事件
+		form.on("switch(checkbox_redWarn)", function(data) {
+			//选中情况
+			var isCheck = data.elem.checked === true ? '选中' : '未选中';
+			layer.msg('三色预警-红色预警 ' + isCheck);
+		})
+		form.on("switch(checkbox_yellowWarn)", function(data) {
+			//选中情况
+			var isCheck = data.elem.checked === true ? '选中' : '未选中';
+			layer.msg('三色预警-黄色预警 ' + isCheck);
+		})
+		form.on("switch(checkbox_greenWarn)", function(data) {
+			//选中情况
+			var isCheck = data.elem.checked === true ? '选中' : '未选中';
+			layer.msg('三色预警-绿色预警 ' + isCheck);
+		})
+	})
+</script>
